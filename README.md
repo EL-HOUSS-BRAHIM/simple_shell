@@ -1,95 +1,100 @@
-# Simple Unix Shell
+```markdown
+# Simple Unix Shell Project
 
-## Table of Contents
-- [Project Description](#project-description)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Compilation](#compilation)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Builtin Commands](#builtin-commands)
-- [Additional Features](#additional-features)
-- [Contributing](#contributing)
-- [Authors](#authors)
-- [License](#license)
+## Overview
+
+This is a simple Unix command-line shell implementation for the ALX SE program. The project aims to create a basic shell that can execute commands, handle built-in functions, and provide a user-friendly command-line interface. This project is a collaborative effort by [BRAHIM EL HOUSS] and [AYOUB KIAL].
+
+## Project Details
+
+- Project Name: Simple Unix Shell
+- Project Start Date: October 4, 2023, 4:00 AM
+- Project Deadline: October 19, 2023, 4:00 AM
+- Checker Release Date: October 17, 2023, 11:12 PM
 
 ## Project Description
 
-The Simple Unix Shell is a command-line interpreter that allows users to execute basic Unix commands. This project is part of the curriculum at ALX Software Engineering and aims to provide a fundamental understanding of system calls, process management, and Unix command execution.
+The goal of this project is to create a functional Unix shell that can handle the following tasks:
 
-## Getting Started
+- Execute external commands
+- Handle built-in functions (exit, env, cd, etc.)
+- Implement basic input and output redirection (optional)
+- Manage variables and special variables (e.g., $? and $$)
+- Handle logical operators (&& and ||) (optional)
+- Support command separators (;) (optional)
+- Handle comments in user input (optional)
+- Read and execute commands from a file (optional)
+- Implement aliases (optional)
 
-### Prerequisites
+## Project Structure
 
-Before you begin, ensure you have the following prerequisites:
+The project is organized into several source files to maintain code modularity and readability:
 
-- A Unix-based operating system (e.g., Linux)
-- GCC compiler
-- A code editor (e.g., Vim, Emacs)
+- `main.c`: Contains the main function to start the shell.
+- `helpers.c`: Provides utility functions for error handling, string manipulation, and memory management.
+- `builtins.c`: Implements built-in shell commands like exit, env, and cd.
+- `execution.c`: Handles the execution of external commands and input/output redirection.
+- `tokenization.c`: Tokenizes user input into command arguments.
+- `path_handling.c`: Manages the PATH variable and searches for executable commands.
+- `error_handling.c`: Provides error-handling functions and displays error messages.
+- `memory.c`: Manages memory allocation and deallocation.
+- `variables.c`: Manages special shell variables like $? and $$.
+- `alias.c` (optional): Implements alias functionality.
+- `comments.c` (optional): Handles comments in user input.
+- `logical_operators.c` (optional): Supports logical operators (&& and ||).
+- `command_separator.c` (optional): Handles command separators (;).
+- `file_input.c` (optional): Reads and executes commands from a file.
+- `Makefile`: Configures compilation and project management.
 
-### Compilation
+## Compilation
 
 You can compile the shell using the following command:
 
 ```bash
-gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o simple_shell
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 ```
 
 ## Usage
 
-To run the Simple Unix Shell, execute the following command in your terminal:
+To run the shell in interactive mode, simply execute the compiled binary:
 
 ```bash
-./simple_shell
+./hsh
 ```
 
-Once the shell is running, you can enter Unix commands and execute them.
+You can then enter commands and interact with the shell. The shell will display a prompt and execute the entered commands.
 
-## Project Structure
+## Task Progress
 
-The project is organized into several source files, each serving a specific purpose:
+- Task 0: Betty would be proud - Completed
+- Task 1: Simple shell 0.1 - In Progress
+- Task 2: Simple shell 0.2 - Not Started
+- Task 3: Simple shell 0.3 - Not Started
+- Task 4: Simple shell 0.4 - Not Started
+- Task 5: Simple shell 1.0 - Not Started
+- Task 6: Simple shell 0.1.1 (Optional) - Not Started
+- Task 7: Simple shell 0.2.1 (Optional) - Not Started
+- Task 8: Simple shell 0.4.1 (Optional) - Not Started
+- Task 9: setenv, unsetenv (Optional) - Not Started
+- Task 10: cd (Optional) - Not Started
+- Task 11: ; (Optional) - Not Started
+- Task 12: && and || (Optional) - Not Started
+- Task 13: alias (Optional) - Not Started
+- Task 14: Variables (Optional) - Not Started
+- Task 15: Comments (Optional) - Not Started
+- Task 16: File as input (Optional) - Not Started
 
-- `main.c`: Entry point for the shell.
-- `helpers.c`: Utility functions for error handling and string manipulation.
-- `builtins.c`: Implementations of builtin commands like `exit` and `env`.
-- `execution.c`: Execution of external commands and handling PATH.
-- `tokenization.c`: Tokenizing user input.
-- `path_handling.c`: Parsing and searching directories in PATH.
-- `error_handling.c`: Error handling and error message display.
-- `memory.c`: Memory allocation and deallocation functions.
-- `variables.c`: Managing special variables like `$?` and `$$`.
+## Contribution Guidelines
 
-## Builtin Commands
+If you are working on a specific task or file, please update the task progress above to indicate your current status (In Progress, Completed, Not Started). This helps in tracking the project's development.
 
-The shell supports the following builtin commands:
-
-- `exit`: Exit the shell.
-- `env`: Print the current environment variables.
-
-## Additional Features
-
-This shell can be extended with optional features such as:
-
-- `alias`: Managing aliases for commands.
-- `comments`: Handling comments in user input.
-- `logical_operators`: Supporting logical operators (`&&` and `||`).
-- `command_separator`: Handling command separator (`;`).
-- `file_input`: Reading and executing commands from a file.
-
-## Contributing
-
-Contributions to this project are welcome. You can contribute by:
-
-1. Forking the repository.
-2. Creating a new branch for your feature or bug fix.
-3. Making your changes and testing them.
-4. Creating a pull request with a clear description of your changes.
-
-## Authors
-
-- [BRAHIM EL HOUSS](https://github.com/EL-HOUSS-BRAHIM/simple_shell.git) - Owner
-- []() - Owner
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the [License Name] License - see the [LICENSE.md](LICENSE.md) file for details.
+
+## Acknowledgments
+
+- [Julien Barbier](https://twitter.com/julienbarbier42) for providing guidance and project details.
+- [ALX Software Engineering](https://intranet.alxswe.com) for the learning opportunity.
+
 ```

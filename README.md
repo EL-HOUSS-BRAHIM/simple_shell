@@ -43,7 +43,6 @@ The project is organized into several source files to maintain code modularity a
 - `logical_operators.c` (optional): Supports logical operators (&& and ||).
 - `command_separator.c` (optional): Handles command separators (;).
 - `file_input.c` (optional): Reads and executes commands from a file.
-- `Makefile`: Configures compilation and project management.
 
 ## Compilation
 

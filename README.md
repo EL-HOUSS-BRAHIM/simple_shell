@@ -1,4 +1,3 @@
-```markdown
 # Simple Unix Shell Project
 
 ## Overview

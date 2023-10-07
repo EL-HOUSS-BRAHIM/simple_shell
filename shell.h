@@ -2,6 +2,8 @@
 #define SHELL_H
 
 #include <stdio.h>
+
+#include <ctype.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/types.h>

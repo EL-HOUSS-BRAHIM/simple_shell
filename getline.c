@@ -21,7 +21,7 @@ ssize_t _getline(char **line, size_t *len, FILE *stream)
     {
         *line = NULL;
         *len = 0;
-        bufsize = BUFFER_SIZE;
+        bufsize = BUFSIZE;
     }
     else
     {

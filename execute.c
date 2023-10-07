@@ -6,7 +6,7 @@
  *
  * Return: 0 on success, -1 on failure
  */
-int execute_command(char **args)
+int execute_command(char **args, char ***env)
 {
     pid_t child_pid;
     int status;
@@ -16,7 +16,7 @@ int execute_command(char **args)
 
     if (is_builtin(args[0]))
     {
-      status = execute_builtin(args, env);
+      status = execute_builtin(args, *env);
         return (status);
     }
 

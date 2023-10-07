@@ -16,7 +16,7 @@ int execute_command(char **args, char ***env)
 
     if (is_builtin(args[0]))
     {
-      status = execute_builtin(args, *env);
+      status = execute_builtin(args, env);
         return (status);
     }
 
@@ -29,7 +29,7 @@ int execute_command(char **args, char ***env)
 
     if (child_pid == 0)
     {
-        handle_child(args, environ);
+        handle_child(args, *env);
         _exit(EXIT_FAILURE);
     }
     else

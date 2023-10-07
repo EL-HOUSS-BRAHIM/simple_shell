@@ -22,7 +22,7 @@ int main(int argc, char *argv[], char **env)
  * start_shell - Starts the simple shell
  * @env: The environment variables
  */
-void start_shell(char **env)
+void start_shell(char **env __attribute__((unused)))
 {
     char *input_line;
     char **args;
@@ -40,9 +40,9 @@ void start_shell(char **env)
             continue;
         }
 
-        status = execute_command(args);
+        status = execute_command(args, &env);
 
         free(input_line);
         free(args);
-    } while (status != EXIT_SHELL);
+    } while (status != 0);
 }

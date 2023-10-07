@@ -2,7 +2,6 @@
 #define SHELL_H
 
 #include <stdio.h>
-
 #include <ctype.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -13,6 +12,7 @@
 #include <signal.h>
 #include <errno.h>
 
+#define TOKEN_SIZE 64
 #define BUFSIZE 1024
 
 /* main.c */
@@ -23,7 +23,7 @@ void display_prompt(void);
 char *read_input(void);
 
 /* execute.c */
-int execute_command(char **args);
+int execute_command(char **args, char ***env);
 int is_builtin(char *command);
 void handle_path(char **args);
 void handle_child(char **args, char **env);

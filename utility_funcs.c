@@ -39,6 +39,7 @@ int _strcmp(const char *s1, const char *s2)
 
     return (s1[i] - s2[i]);
 }
+
 /**
  * _atoi - Convert a string to an integer.
  * @str: The string to convert.
@@ -71,6 +72,7 @@ int _atoi(const char *str)
 
     return result * sign;
 }
+
 /**
  * _puts - Print a string to stdout.
  * @str: The string to print.
@@ -83,6 +85,7 @@ void _puts(const char *str)
         str++;
     }
 }
+
 /**
  * _putchar - Write a character to stdout.
  * @c: The character to write.
@@ -91,6 +94,7 @@ int _putchar(char c)
 {
     return write(1, &c, 1);
 }
+
 /**
  * _getenv - Get the value of an environment variable.
  * @name: The name of the variable to retrieve.
@@ -102,7 +106,7 @@ char *_getenv(const char *name)
     int i;
     size_t name_len = _strlen(name);
 
-    for (i = 0; (env)[i]; i++)
+    for (i = 0; environ[i]; i++)
     {
         if (_strncmp(environ[i], name, name_len) == 0 && environ[i][name_len] == '=')
         {
@@ -111,6 +115,7 @@ char *_getenv(const char *name)
     }
     return NULL;
 }
+
 /**
  * _strcat - Concatenate two strings.
  * @dest: The destination string.
@@ -131,6 +136,7 @@ char *_strcat(char *dest, const char *src)
 
     return dest;
 }
+
 /**
  * _strdup - Duplicate a string.
  * @str: The string to duplicate.
@@ -152,6 +158,7 @@ char *_strdup(const char *str)
 
     return dup;
 }
+
 /**
  * _strncmp - Compare two strings up to n characters.
  * @s1: The first string to compare.
@@ -173,6 +180,7 @@ int _strncmp(const char *s1, const char *s2, size_t n)
 
     return 0;
 }
+
 /**
  * _realloc - Reallocate memory.
  * @ptr: Pointer to the previously allocated memory.
@@ -221,6 +229,7 @@ void *_realloc(void *ptr, size_t old_size, size_t new_size)
     free(ptr);
     return new_ptr;
 }
+
 /**
  * _strncat - Concatenate two strings up to n characters.
  * @dest: The destination string.
@@ -242,6 +251,7 @@ char *_strncat(char *dest, const char *src, size_t n)
 
     return dest;
 }
+
 /**
  * _strcpy - Copy a string.
  * @dest: The destination buffer.
@@ -262,6 +272,7 @@ char *_strcpy(char *dest, const char *src)
 
     return dest;
 }
+
 /**
  * _memcpy - Copy memory area.
  * @dest: Destination memory area.

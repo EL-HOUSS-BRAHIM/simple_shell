@@ -63,40 +63,6 @@ int is_builtin(char *command)
 }
 
 /**
- * handle_path - Handle the PATH environment variable for executing commands
- * @args: An array of strings representing the command and its arguments
- */
-void handle_path(char **args)
-{
-    char *path = _getenv("PATH");
-    char **directories;
-    char *full_path = NULL;
-
-    if (path == NULL)
-    {
-        perror("handle_path");
-        return;
-    }
-
-    directories = tokenize(path, ":");
-    if (directories == NULL)
-    {
-        perror("handle_path");
-        return;
-    }
-
-    full_path = find_command(args[0], directories);
-    if (full_path != NULL)
-    {
-        args[0] = full_path;
-        free_tokens(directories);
-        return;
-    }
-
-    free_tokens(directories);
-}
-
-/**
  * handle_child - Handle the child process execution
  * @args: An array of strings representing the command and its arguments
  * @env: The array of environment variables

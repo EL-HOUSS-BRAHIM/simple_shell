@@ -1,84 +1,94 @@
-# Simple Shell Program
-
-This is a simple Unix-like shell program written in C that provides basic shell functionality, including command execution, environment variable management, and built-in commands.
+# Simple Unix Shell
 
 ## Table of Contents
-- [Project Structure](#project-structure)
+- [Project Description](#project-description)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Compilation](#compilation)
 - [Usage](#usage)
-- [Features](#features)
-- [Built-in Commands](#built-in-commands)
+- [Project Structure](#project-structure)
+- [Builtin Commands](#builtin-commands)
+- [Additional Features](#additional-features)
 - [Contributing](#contributing)
+- [Authors](#authors)
 - [License](#license)
-- [
-[BRAHIM EL HOUSS] and [AYOUB KIAL]
-## Project Structure
 
-The project structure is organized into several source code files to maintain modularity and readability. Here's an overview of the project structure:
+## Project Description
 
-### Source Code Files
+The Simple Unix Shell is a command-line interpreter that allows users to execute basic Unix commands. This project is part of the curriculum at ALX Software Engineering and aims to provide a fundamental understanding of system calls, process management, and Unix command execution.
 
-1. **main.c**: The entry point of the shell program, responsible for starting the shell and managing user input and command execution.
+## Getting Started
 
-2. **prompt.c**: Contains functions related to displaying the shell prompt and reading user input.
+### Prerequisites
 
-3. **execute.c**: Handles command execution, including running external commands and built-in shell commands.
+Before you begin, ensure you have the following prerequisites:
 
-4. **helper.c**: Provides utility functions for string manipulation, tokenization, and memory management.
+- A Unix-based operating system (e.g., Linux)
+- GCC compiler
+- A code editor (e.g., Vim, Emacs)
 
-5. **builtins.c**: Defines built-in shell commands like `exit`, `env`, `setenv`, `unsetenv`, and `cd`.
+### Compilation
 
-6. **environ.c**: Manages environment variables, including functions to get, set, and unset environment variables.
+You can compile the shell using the following command:
 
-7. **getline.c**: Contains a custom `getline` function to read lines from a file stream, enhancing user input handling.
-
-8. **str_funcs.c**: Defines functions for string manipulation, including tokenization, whitespace trimming, and variable replacement.
-
-9. **utility_funcs.c**: Contains utility functions like string length calculation, string comparison, and memory management.
-
-### Header Files
-
-- **shell.h**: Contains function prototypes, necessary system library includes, and macro definitions for the entire project.
-
-### Other Files
-
-- **Makefile**: Defines build instructions for compiling the shell program.
+```bash
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o simple_shell
+```
 
 ## Usage
 
-To compile and run the shell program, follow these steps:
+To run the Simple Unix Shell, execute the following command in your terminal:
 
-1. Clone the repository: `git clone <repository-url>`
-2. Navigate to the project directory: `cd simple-shell`
-3. Compile the code: `make`
-4. Run the shell: `./shell`
+```bash
+./simple_shell
+```
 
-The shell prompt will appear, allowing you to enter commands.
+Once the shell is running, you can enter Unix commands and execute them.
 
-## Features
+## Project Structure
 
-- Command execution (both external commands and built-in commands).
-- Environment variable management (get, set, unset).
-- Built-in commands: `exit`, `env`, `setenv`, `unsetenv`, `cd`.
-- Custom `getline` function for enhanced user input handling.
-- Variable substitution (e.g., replacing `$VAR` with the value of the environment variable `VAR`).
+The project is organized into several source files, each serving a specific purpose:
 
-## Built-in Commands
+- `main.c`: Entry point for the shell.
+- `helpers.c`: Utility functions for error handling and string manipulation.
+- `builtins.c`: Implementations of builtin commands like `exit` and `env`.
+- `execution.c`: Execution of external commands and handling PATH.
+- `tokenization.c`: Tokenizing user input.
+- `path_handling.c`: Parsing and searching directories in PATH.
+- `error_handling.c`: Error handling and error message display.
+- `memory.c`: Memory allocation and deallocation functions.
+- `variables.c`: Managing special variables like `$?` and `$$`.
 
-- `exit`: Exit the shell program.
-- `env`: Display the current environment variables.
-- `setenv VAR VALUE`: Set an environment variable `VAR` with the given `VALUE`.
-- `unsetenv VAR`: Unset (remove) an environment variable `VAR`.
-- `cd [DIRECTORY]`: Change the current working directory to `DIRECTORY` (default is the user's home directory).
+## Builtin Commands
+
+The shell supports the following builtin commands:
+
+- `exit`: Exit the shell.
+- `env`: Print the current environment variables.
+
+## Additional Features
+
+This shell can be extended with optional features such as:
+
+- `alias`: Managing aliases for commands.
+- `comments`: Handling comments in user input.
+- `logical_operators`: Supporting logical operators (`&&` and `||`).
+- `command_separator`: Handling command separator (`;`).
+- `file_input`: Reading and executing commands from a file.
 
 ## Contributing
 
-Contributions to this project are welcome! If you'd like to contribute, please follow these guidelines:
+Contributions to this project are welcome. You can contribute by:
 
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix: `git checkout -b feature/your-feature-name` or `git checkout -b bugfix/your-bug-fix`.
-3. Make your changes and commit them: `git commit -m "Your commit message here"`.
-4. Push your changes to your fork: `git push origin feature/your-feature-name` or `git push origin bugfix/your-bug-fix`.
-5. Create a pull request to the `main` branch of this repository.
+1. Forking the repository.
+2. Creating a new branch for your feature or bug fix.
+3. Making your changes and testing them.
+4. Creating a pull request with a clear description of your changes.
+
+## Authors
+
+- [BRAHIM EL HOUSS](https://github.com/EL-HOUSS-BRAHIM/simple_shell.git) - Owner
+- [AYOUB KIAL] - Owner
 
 ## License
 

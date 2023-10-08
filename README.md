@@ -1,96 +1,85 @@
-# Simple Unix Shell Project
+# Simple Shell Program
 
-## Overview
+This is a simple Unix-like shell program written in C that provides basic shell functionality, including command execution, environment variable management, and built-in commands.
 
-This is a simple Unix command-line shell implementation for the ALX SE program. The project aims to create a basic shell that can execute commands, handle built-in functions, and provide a user-friendly command-line interface. This project is a collaborative effort by [BRAHIM EL HOUSS] and [AYOUB KIAL].
-
-## Project Details
-
-- Project Name: Simple Unix Shell
-- Project Start Date: October 4, 2023, 4:00 AM
-- Project Deadline: October 19, 2023, 4:00 AM
-- Checker Release Date: October 17, 2023, 11:12 PM
-
-## Project Description
-
-The goal of this project is to create a functional Unix shell that can handle the following tasks:
-
-- Execute external commands
-- Handle built-in functions (exit, env, cd, etc.)
-- Implement basic input and output redirection (optional)
-- Manage variables and special variables (e.g., $? and $$)
-- Handle logical operators (&& and ||) (optional)
-- Support command separators (;) (optional)
-- Handle comments in user input (optional)
-- Read and execute commands from a file (optional)
-- Implement aliases (optional)
-
+## Table of Contents
+- [Project Structure](#project-structure)
+- [Usage](#usage)
+- [Features](#features)
+- [Built-in Commands](#built-in-commands)
+- [Contributing](#contributing)
+- [License](#license)
+- [
+[BRAHIM EL HOUSS] and [AYOUB KIAL]
 ## Project Structure
 
-The project is organized into several source files to maintain code modularity and readability:
+The project structure is organized into several source code files to maintain modularity and readability. Here's an overview of the project structure:
 
-- `main.c`: Contains the main function to start the shell.
-- `helpers.c`: Provides utility functions for error handling, string manipulation, and memory management.
-- `builtins.c`: Implements built-in shell commands like exit, env, and cd.
-- `execution.c`: Handles the execution of external commands and input/output redirection.
-- `tokenization.c`: Tokenizes user input into command arguments.
-- `path_handling.c`: Manages the PATH variable and searches for executable commands.
-- `error_handling.c`: Provides error-handling functions and displays error messages.
-- `memory.c`: Manages memory allocation and deallocation.
-- `variables.c`: Manages special shell variables like $? and $$.
-- `alias.c` (optional): Implements alias functionality.
-- `comments.c` (optional): Handles comments in user input.
-- `logical_operators.c` (optional): Supports logical operators (&& and ||).
-- `command_separator.c` (optional): Handles command separators (;).
-- `file_input.c` (optional): Reads and executes commands from a file.
+### Source Code Files
 
-## Compilation
+1. **main.c**: The entry point of the shell program, responsible for starting the shell and managing user input and command execution.
 
-You can compile the shell using the following command:
+2. **prompt.c**: Contains functions related to displaying the shell prompt and reading user input.
 
-```bash
-gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
-```
+3. **execute.c**: Handles command execution, including running external commands and built-in shell commands.
+
+4. **helper.c**: Provides utility functions for string manipulation, tokenization, and memory management.
+
+5. **builtins.c**: Defines built-in shell commands like `exit`, `env`, `setenv`, `unsetenv`, and `cd`.
+
+6. **environ.c**: Manages environment variables, including functions to get, set, and unset environment variables.
+
+7. **getline.c**: Contains a custom `getline` function to read lines from a file stream, enhancing user input handling.
+
+8. **str_funcs.c**: Defines functions for string manipulation, including tokenization, whitespace trimming, and variable replacement.
+
+9. **utility_funcs.c**: Contains utility functions like string length calculation, string comparison, and memory management.
+
+### Header Files
+
+- **shell.h**: Contains function prototypes, necessary system library includes, and macro definitions for the entire project.
+
+### Other Files
+
+- **Makefile**: Defines build instructions for compiling the shell program.
 
 ## Usage
 
-To run the shell in interactive mode, simply execute the compiled binary:
+To compile and run the shell program, follow these steps:
 
-```bash
-./hsh
-```
+1. Clone the repository: `git clone <repository-url>`
+2. Navigate to the project directory: `cd simple-shell`
+3. Compile the code: `make`
+4. Run the shell: `./shell`
 
-You can then enter commands and interact with the shell. The shell will display a prompt and execute the entered commands.
+The shell prompt will appear, allowing you to enter commands.
 
-## Task Progress
+## Features
 
-- Task 0: Betty would be proud - Completed
-- Task 1: Simple shell 0.1 - Completed
-- Task 2: Simple shell 0.2 - Completed
-- Task 3: Simple shell 0.3 - Completed
-- Task 4: Simple shell 0.4 - Completed
-- Task 5: Simple shell 1.0 - Completed
-- Task 6: Simple shell 0.1.1 (Optional) - Completed
-- Task 7: Simple shell 0.2.1 (Optional) - Completed
-- Task 8: Simple shell 0.4.1 (Optional) - Completed
-- Task 9: setenv, unsetenv (Optional) - Completed
-- Task 10: cd (Optional) - Completed
-- Task 11: ; (Optional) - Completed
-- Task 12: && and || (Optional) - Completed
-- Task 13: alias (Optional) - Completed
-- Task 14: Variables (Optional) - Completed
-- Task 15: Comments (Optional) - Completed
-- Task 16: File as input (Optional) - Completed
+- Command execution (both external commands and built-in commands).
+- Environment variable management (get, set, unset).
+- Built-in commands: `exit`, `env`, `setenv`, `unsetenv`, `cd`.
+- Custom `getline` function for enhanced user input handling.
+- Variable substitution (e.g., replacing `$VAR` with the value of the environment variable `VAR`).
 
-## Contribution Guidelines
+## Built-in Commands
 
-If you are working on a specific task or file, please update the task progress above to indicate your current status (In Progress, Completed, Not Started). This helps in tracking the project's development.
+- `exit`: Exit the shell program.
+- `env`: Display the current environment variables.
+- `setenv VAR VALUE`: Set an environment variable `VAR` with the given `VALUE`.
+- `unsetenv VAR`: Unset (remove) an environment variable `VAR`.
+- `cd [DIRECTORY]`: Change the current working directory to `DIRECTORY` (default is the user's home directory).
+
+## Contributing
+
+Contributions to this project are welcome! If you'd like to contribute, please follow these guidelines:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix: `git checkout -b feature/your-feature-name` or `git checkout -b bugfix/your-bug-fix`.
+3. Make your changes and commit them: `git commit -m "Your commit message here"`.
+4. Push your changes to your fork: `git push origin feature/your-feature-name` or `git push origin bugfix/your-bug-fix`.
+5. Create a pull request to the `main` branch of this repository.
 
 ## License
 
-This project is licensed under the [License Name] License - see the [LICENSE.md](LICENSE.md) file for details.
-
-## Acknowledgments
-
-- [Julien Barbier](https://twitter.com/julienbarbier42) for providing guidance and project details.
-- [ALX Software Engineering](https://intranet.alxswe.com) for the learning opportunity.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

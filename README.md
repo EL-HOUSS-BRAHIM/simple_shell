@@ -65,22 +65,22 @@ You can then enter commands and interact with the shell. The shell will display 
 ## Task Progress
 
 - Task 0: Betty would be proud - Completed
-- Task 1: Simple shell 0.1 - In Progress
-- Task 2: Simple shell 0.2 - Not Started
-- Task 3: Simple shell 0.3 - Not Started
-- Task 4: Simple shell 0.4 - Not Started
-- Task 5: Simple shell 1.0 - Not Started
-- Task 6: Simple shell 0.1.1 (Optional) - Not Started
-- Task 7: Simple shell 0.2.1 (Optional) - Not Started
-- Task 8: Simple shell 0.4.1 (Optional) - Not Started
-- Task 9: setenv, unsetenv (Optional) - Not Started
-- Task 10: cd (Optional) - Not Started
-- Task 11: ; (Optional) - Not Started
-- Task 12: && and || (Optional) - Not Started
-- Task 13: alias (Optional) - Not Started
-- Task 14: Variables (Optional) - Not Started
-- Task 15: Comments (Optional) - Not Started
-- Task 16: File as input (Optional) - Not Started
+- Task 1: Simple shell 0.1 - Completed
+- Task 2: Simple shell 0.2 - Completed
+- Task 3: Simple shell 0.3 - Completed
+- Task 4: Simple shell 0.4 - Completed
+- Task 5: Simple shell 1.0 - Completed
+- Task 6: Simple shell 0.1.1 (Optional) - Completed
+- Task 7: Simple shell 0.2.1 (Optional) - Completed
+- Task 8: Simple shell 0.4.1 (Optional) - Completed
+- Task 9: setenv, unsetenv (Optional) - Completed
+- Task 10: cd (Optional) - Completed
+- Task 11: ; (Optional) - Completed
+- Task 12: && and || (Optional) - Completed
+- Task 13: alias (Optional) - Completed
+- Task 14: Variables (Optional) - Completed
+- Task 15: Comments (Optional) - Completed
+- Task 16: File as input (Optional) - Completed
 
 ## Contribution Guidelines
 
@@ -94,5 +94,3 @@ This project is licensed under the [License Name] License - see the [LICENSE.md]
 
 - [Julien Barbier](https://twitter.com/julienbarbier42) for providing guidance and project details.
 - [ALX Software Engineering](https://intranet.alxswe.com) for the learning opportunity.
-
-```

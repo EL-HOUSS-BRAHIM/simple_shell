@@ -1,4 +1,3 @@
-```markdown
 # Simple Shell Program
 
 This is a simple shell program written in C. It provides basic shell functionality, including executing commands, handling built-in commands, and managing environment variables.
@@ -24,7 +23,7 @@ Compile the shell program using the following command:
 
 ```shell
 gcc -o myshell main.c utility_funcs.c str_funcs.c prompt.c execute.c helper.c environ.c getline.c builtins.c -lm
-
+```
 
 ## How to Run
 
@@ -32,7 +31,7 @@ To run the shell program, use the following command:
 
 ```shell
 ./myshell
-
+```
 
 ## Usage
 
@@ -44,7 +43,7 @@ Once the shell is running, you can enter commands just like you would in a stand
 
   ```shell
   ls -l
-
+```
 
 - Use built-in commands:
 
@@ -54,7 +53,7 @@ Once the shell is running, you can enter commands just like you would in a stand
   setenv MY_VARIABLE my_value
   unsetenv MY_VARIABLE
   cd /path/to/directory
-
+```
 
 ## Author
 
@@ -63,4 +62,3 @@ Once the shell is running, you can enter commands just like you would in a stand
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-```

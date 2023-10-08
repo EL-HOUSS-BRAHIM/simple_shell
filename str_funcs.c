@@ -13,11 +13,12 @@ char **tokenize(char *line, char *delimiters)
     char *token = NULL;
     size_t token_count = 0;
     size_t token_size = TOKEN_SIZE;
+    size_t i;
 
     if (line == NULL)
         return (NULL);
 
-    tokens = malloc(sizeof(char *) * token_size);
+    tokens = (char **)malloc(sizeof(char *) * token_size);
     if (tokens == NULL)
         return (NULL);
 
@@ -27,13 +28,25 @@ char **tokenize(char *line, char *delimiters)
         if (token_count >= token_size - 1)
         {
             token_size *= 2;
-            tokens = _realloc(tokens, sizeof(char *) * (token_size / 2), sizeof(char *) * token_size);
+            tokens = (char **)realloc(tokens, sizeof(char *) * token_size);
             if (tokens == NULL)
-                return (NULL);
+            {
+                /* Handle allocation failure */
+                for (i = 0; i < token_count; i++)
+                    free(tokens[i]);
+                free(tokens);
+                return NULL;
+            }
         }
         tokens[token_count] = strdup(token);
         if (tokens[token_count] == NULL)
-            return (NULL);
+        {
+            /* Handle allocation failure */
+            for (i = 0; i < token_count; i++)
+                free(tokens[i]);
+            free(tokens);
+            return NULL;
+        }
         token_count++;
         token = strtok(NULL, delimiters);
     }
@@ -90,7 +103,6 @@ char *replace_variables(char *line, char **env)
     char *var_name = NULL;
     char *var_value = NULL;
     size_t len = 0;
-    size_t result_len = 0;
 
     if (line == NULL)
         return (NULL);
@@ -113,7 +125,6 @@ char *replace_variables(char *line, char **env)
                     if (var_value != NULL)
                     {
                         result = _strcat(result, var_value);
-                        result_len = strlen(result);
                         free(var_name);
                         var_name = NULL;
                     }
@@ -122,14 +133,12 @@ char *replace_variables(char *line, char **env)
             if (!var_value)
             {
                 result = _strcat(result, "$");
-                result_len = strlen(result);
             }
             start = end;
         }
         else
         {
             result = _strncat(result, start, 1);
-            result_len = strlen(result);
             start++;
         }
     }

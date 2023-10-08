@@ -26,6 +26,7 @@ char *read_input(void);
 int execute_command(char **args, char ***env);
 int is_builtin(char *command);
 void handle_path(char **args);
+char *find_command(const char *command, char **directories);
 void handle_child(char **args, char **env);
 
 /* helper.c */

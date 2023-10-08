@@ -1,4 +1,5 @@
 #include "shell.h"
+#include <stdio.h>
 
 /**
  * execute_command - Execute a command with arguments
@@ -16,7 +17,7 @@ int execute_command(char **args, char ***env)
 
     if (is_builtin(args[0]))
     {
-      status = execute_builtin(args, env);
+        status = execute_builtin(args, env);
         return (status);
     }
 
@@ -55,11 +56,45 @@ int is_builtin(char *command)
 
     while (builtins[i])
     {
-        if (_strcmp(command, builtins[i]) == 0)
+        if (strcmp(command, builtins[i]) == 0)
             return (1);
         i++;
     }
     return (0);
+}
+
+/**
+ * handle_path - Handle the PATH environment variable for executing commands
+ * @args: An array of strings representing the command and its arguments
+ */
+void handle_path(char **args)
+{
+    char *path = _getenv("PATH");
+    char **directories;
+    char *full_path = NULL;
+
+    if (path == NULL)
+    {
+        perror("handle_path");
+        return;
+    }
+
+    directories = tokenize(path, ":");
+    if (directories == NULL)
+    {
+        perror("handle_path");
+        return;
+    }
+
+    full_path = find_command(args[0], directories);
+    if (full_path != NULL)
+    {
+        args[0] = full_path;
+        free_tokens(directories);
+        return;
+    }
+
+    free_tokens(directories);
 }
 
 /**

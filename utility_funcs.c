@@ -1,7 +1,6 @@
 #include "shell.h"
-#include <string.h>
-#include <stdlib.h>
 
+extern char **environ;
 /**
  * _strlen - Calculate the length of a string
  * @s: The input string

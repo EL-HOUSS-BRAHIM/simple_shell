@@ -18,12 +18,11 @@ return (0);
  * start_shell - Starts the simple shell
  * @env: The environment variables
  */
-void start_shell(char **env __attribute__((unused)))
-{
+void start_shell(char **env __attribute__((unused))) {
 char *input_line;
 char **args;
 int status;
-do {
+while (1) {
 display_prompt();
 input_line = read_input();
 if (!input_line)
@@ -37,5 +36,10 @@ continue;
 status = execute_command(args, &env);
 free(input_line);
 free(args);
-} while (status != 0);
+/* Check if the "exit" command was entered or Ctrl+C was pressed */
+if (status == -1) {
+write(STDOUT_FILENO, "\n", 1); /* Print a newline */
+break; /* Exit the loop */
+}
+}
 }

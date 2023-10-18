@@ -43,7 +43,9 @@ return (-1);
  */
 int is_builtin(char *command)
 {
-char *builtins[] = { "exit", "env", "setenv", "unsetenv", "cd", "alias", NULL };
+char *builtins[] = {
+"exit", "env", "setenv", "unsetenv", "cd", "alias", NULL
+};
 int i = 0;
 while (builtins[i])
 {

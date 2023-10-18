@@ -83,35 +83,45 @@ return (trimmed);
  *
  * Return: A new string with variables replaced, or NULL on failure
  */
-char *replace_variables(char *line, char **env) {
+char *replace_variables(char *line, char **env)
+{
 char *result = NULL;
 char *start = line;
 char *end = NULL;
 char *var_name = NULL;
 char *var_value = NULL;
 size_t len = 0;
-while (*start) {
-if (*start == '$' && *(start + 1)) {
+while (*start)
+{
+if (*start == '$' && *(start + 1))
+{
 end = start + 1;
-while (*end && (isalnum(*end) || *end == '_')) {
+while (*end && (isalnum(*end) || *end == '_'))
+{
 end++;
 }
 len = end - start - 1;
-if (len > 0) {
+if (len > 0)
+{
 var_name = strndup(start + 1, len);
 var_value = get_env_value(env, var_name);
 free(var_name);
 }
-if (var_value) {
+if (var_value)
+{
 result = _strcat(result, var_value);
-} else {
+}
+else
+{
 result = _strncat(result, start, 1);
 }
 start = end;
-} else {
+}
+else
+{
 result = _strncat(result, start, 1);
 start++;
 }
 }
-return result;
+return (result);
 }

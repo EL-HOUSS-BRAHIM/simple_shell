@@ -2,6 +2,7 @@
 /**
  * execute_command - Execute a command with arguments
  * @args: An array of strings representing the command and its arguments
+ * @env: The array of environment variables
  *
  * Return: 0 on success, -1 on failure
  */
@@ -43,7 +44,10 @@ return (-1);
  */
 int is_builtin(char *command)
 {
-char *builtins[] = { "exit", "env", "setenv", "unsetenv", "cd", "alias", NULL };
+char *builtins[] =
+{
+"exit", "env", "setenv", "unsetenv", "cd", "alias", NULL
+};
 int i = 0;
 while (builtins[i])
 {

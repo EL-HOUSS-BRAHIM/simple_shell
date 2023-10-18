@@ -29,7 +29,8 @@ input_line = read_input();
 if (!input_line)
 break;
 args = tokenize(input_line, " \t\n\r");
-if (!args || !args[0]) {
+if (!args || !args[0])
+{
 free(input_line);
 continue;
 }

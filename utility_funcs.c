@@ -58,7 +58,7 @@ else
 break;
 }
 }
-return result * sign;
+return (result *sign);
 }
 /**
  * _puts - Print a string to stdout.

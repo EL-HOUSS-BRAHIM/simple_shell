@@ -31,7 +31,7 @@ if (tokens == NULL)
 for (i = 0; i < token_count; i++)
 free(tokens[i]);
 free(tokens);
-return NULL;
+return (NULL);
 }
 }
 tokens[token_count] = strdup(token);
@@ -41,7 +41,7 @@ if (tokens[token_count] == NULL)
 for (i = 0; i < token_count; i++)
 free(tokens[i]);
 free(tokens);
-return NULL;
+return (NULL);
 }
 token_count++;
 token = strtok(NULL, delimiters);
@@ -77,7 +77,7 @@ return (NULL);
 return (trimmed);
 }
 /**
- * replace_variables - Replaces environment variables in a string with their values
+ * replace_variables - Replaces environment variables in a string with...
  * @line: The input string
  * @env: The environment variables as an array of strings
  *

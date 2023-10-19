@@ -9,6 +9,7 @@
 #include <sys/stat.h>
 #include <dirent.h>
 #include <signal.h>
+#include <ctype.h>
 #define UNUSED(x) (void)(x)
 /* Global environment variable */
 extern char **environ;

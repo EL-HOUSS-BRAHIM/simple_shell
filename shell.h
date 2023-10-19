@@ -72,4 +72,9 @@ char *trim_whitespace(char *str);
 /* Task 9: setenv and unsetenv */
 int setenv(const char *name, const char *value, int overwrite);
 int unsetenv(const char *name);
+/* utils-2.c */
+int _atoi(const char *s);
+int _isspace(int c);
+size_t _strlen(const char *str);
+int count_tokens(const char *line);
 #endif /* SHELL_H */

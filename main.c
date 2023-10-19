@@ -8,12 +8,12 @@
  */
 int main(int ac, char *av[], char *env[])
 {
-UNUSED(ac);
-UNUSED(av);
-UNUSED(env);
 char *line;
 char **args;
 int status;
+UNUSED(ac);
+UNUSED(av);
+UNUSED(env);
 do {
 printf("($) ");
 line = read_line();

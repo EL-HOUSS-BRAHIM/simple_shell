@@ -8,7 +8,8 @@
  */
 int setenv(const char *name, const char *value, int overwrite)
 {
-if (!name || name[0] == '\0' || !value)
+char *env_var;
+if (name == NULL || name[0] == '\0' || value == NULL)
 {
 fprintf(stderr, "setenv: invalid arguments\n");
 return (-1);
@@ -21,7 +22,6 @@ perror("setenv");
 return (-1);
 }
 }
-char *env_var;
 env_var = malloc(strlen(name) + strlen(value) + 2);
 if (!env_var)
 {

@@ -18,7 +18,7 @@ if (overwrite || getenv(name) == NULL)
 if (putenv(strdup(name)) != 0)
 {
 perror("setenv");
-return -1;
+return (-1);
 }
 }
 char *env_var;
@@ -26,7 +26,7 @@ env_var = malloc(strlen(name) + strlen(value) + 2);
 if (!env_var)
 {
 perror("setenv");
-return -1;
+return (-1);
 }
 strcpy(env_var, name);
 strcat(env_var, "=");
@@ -35,9 +35,9 @@ if (putenv(env_var) != 0)
 {
 perror("setenv");
 free(env_var);
-return -1;
+return (-1);
 }
-return 0;
+return (0);
 }
 /**
  * unsetenv - Unset an environment variable.
@@ -49,15 +49,15 @@ int unsetenv(const char *name)
 if (!name || name[0] == '\0')
 {
 fprintf(stderr, "unsetenv: invalid arguments\n");
-return -1;
+return (-1);
 }
 if (getenv(name) != NULL)
 {
 if (putenv(strdup(name)) != 0)
 {
 perror("unsetenv");
-return -1;
+return (-1);
 }
 }
-return 0;
+return (0);
 }

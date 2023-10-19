@@ -9,7 +9,7 @@
 int setenv(const char *name, const char *value, int overwrite)
 {
 char *env_var;
-if (name == NULL || name[0] == '\0' || value == NULL)
+if (name == NULL || name[0] == '\0' || (value == NULL && overwrite))
 {
 fprintf(stderr, "setenv: invalid arguments\n");
 return (-1);
@@ -46,7 +46,7 @@ return (0);
  */
 int unsetenv(const char *name)
 {
-if (!name || name[0] == '\0')
+if (!name || name[0] == '\0' || getenv(name) == NULL)
 {
 fprintf(stderr, "unsetenv: invalid arguments\n");
 return (-1);

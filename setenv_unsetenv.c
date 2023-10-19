@@ -8,7 +8,7 @@
  * @overwrite: Flag to indicate whether to overwrite the variable if it exists.
  * Return: 0 on success, -1 on failure.
  */
-int _setenv(info_t *info, char *var, char *value, int overwrite)
+int _setenv(ino_t *info, char *var, char *value, int overwrite)
 {
     char *buf = NULL;
     list_t *node;
@@ -53,7 +53,7 @@ int _setenv(info_t *info, char *var, char *value, int overwrite)
  * @var: The name of the environment variable to unset.
  * Return: 1 on delete, 0 otherwise.
  */
-int _unsetenv(info_t *info, char *var)
+int _unsetenv(ino_t *info, char *var)
 {
     list_t *node = info->env;
     size_t i = 0;

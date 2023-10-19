@@ -11,7 +11,7 @@ int setenv(const char *name, const char *value, int overwrite)
 if (!name || name[0] == '\0' || !value)
 {
 fprintf(stderr, "setenv: invalid arguments\n");
-return -1;
+return (-1);
 }
 if (overwrite || getenv(name) == NULL)
 {

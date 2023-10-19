@@ -15,7 +15,7 @@ file = fopen(filename, "r");
 if (!file)
 {
 perror("batch_mode");
-return -1;
+return (-1);
 }
 while ((read = getline(&line, &len, file)) != -1)
 {
@@ -34,5 +34,5 @@ free_args(args);
 }
 free(line);
 fclose(file);
-return status;
+return (status);
 }

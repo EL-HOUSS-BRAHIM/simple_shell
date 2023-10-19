@@ -13,7 +13,7 @@ commands = parse_line(line);
 if (commands == NULL)
 {
 fprintf(stderr, "handle_logical_operators: memory allocation error\n");
-return -1;
+return (-1);
 }
 while (commands[i])
 {
@@ -23,13 +23,13 @@ if (execute(parse_line(trim_whitespace(commands[i]))))
 {
 fprintf(stderr, "handle_logical_operators: command execution error\n");
 free_args(commands);
-return -1;
+return (-1);
 }
 if (execute(parse_line(trim_whitespace(commands[i + 1])))
 {
 fprintf(stderr, "handle_logical_operators: command execution error\n");
 free_args(commands);
-return -1;
+return (-1);
 }
 i++;
 }
@@ -39,7 +39,7 @@ if (!execute(parse_line(trim_whitespace(commands[i]))))
 {
 fprintf(stderr, "handle_logical_operators: command execution error\n");
 free_args(commands);
-return -1;
+return (-1);
 }
 if (execute(parse_line(trim_whitespace(commands[i + 1])))
 {

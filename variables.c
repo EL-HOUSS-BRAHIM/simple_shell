@@ -54,7 +54,7 @@ Variable *temp;
 if (!result)
 {
 fprintf(stderr, "expand_variables: memory allocation error\n");
-return line;
+return (line);
 }
 token = strtok_r(result, " \t", &saveptr);
 while (token)
@@ -69,7 +69,7 @@ result = strdup(temp->value);
 if (!result)
 {
 fprintf(stderr, "expand_variables: memory allocation error\n");
-return line;
+return (line);
 }
 break;
 }
@@ -77,7 +77,7 @@ temp = temp->next;
 }
 token = strtok_r(NULL, " \t", &saveptr);
 }
-return result;
+return (result);
 }
 /**
  * print_variables - Print the list of variables.

@@ -7,56 +7,33 @@
  */
 int handle_logical_operators(char *line)
 {
-char **commands;
+char **commands = parse_line(line);
 int i = 0;
-commands = parse_line(line);
+int status = 0;
 if (commands == NULL)
 {
 fprintf(stderr, "handle_logical_operators: memory allocation error\n");
-return (-1);
+return -1;
 }
 while (commands[i])
 {
-if (strstr(commands[i], "&&"))
+if (status == 0 || (status == 1 && strstr(commands[i], "||")))
 {
 if (execute(parse_line(trim_whitespace(commands[i]))))
 {
 fprintf(stderr, "handle_logical_operators: command execution error\n");
 free_args(commands);
-return (-1);
-}
-if (execute(parse_line(trim_whitespace(commands[i + 1])))
-{
-fprintf(stderr, "handle_logical_operators: command execution error\n");
-free_args(commands);
-return (-1);
-}
-i++;
-}
-else if (strstr(commands[i], "||"))
-{
-if (!execute(parse_line(trim_whitespace(commands[i]))))
-{
-fprintf(stderr, "handle_logical_operators: command execution error\n");
-free_args(commands);
-return (-1);
-}
-if (execute(parse_line(trim_whitespace(commands[i + 1])))
-{
-fprintf(stderr, "handle_logical_operators: command execution error\n");
-free_args(commands);
 return -1;
 }
-i++;
+status = 0;
 }
+else if (status == 1 && strstr(commands[i], "&&"))
+status = 0;
 else
 {
-if (execute(parse_line(trim_whitespace(commands[i])))
-{
-fprintf(stderr, "handle_logical_operators: command execution error\n");
+fprintf(stderr, "handle_logical_operators: invalid operator usage\n");
 free_args(commands);
 return -1;
-}
 }
 i++;
 }

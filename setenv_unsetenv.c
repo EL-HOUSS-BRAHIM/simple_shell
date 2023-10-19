@@ -2,75 +2,77 @@
 
 /**
  * setenv - Set an environment variable or update its value.
- * @name: The name of the environment variable.
+ * @info: Structure containing potential arguments.
+ * @var: The name of the environment variable.
  * @value: The value to set or update.
  * @overwrite: Flag to indicate whether to overwrite the variable if it exists.
  * Return: 0 on success, -1 on failure.
  */
-int setenv(const char *name, const char *value, int overwrite)
+int _setenv(info_t *info, char *var, char *value, int overwrite)
 {
-    char *env_var;
+    char *buf = NULL;
+    list_t *node;
+    char *p;
 
-    /* Check for invalid arguments. */
-    if (name == NULL || name[0] == '\0' || (value == NULL && overwrite == 0)) {
-        fprintf(stderr, "setenv: invalid arguments\n");
+    if (!var || !value) {
         return (-1);
     }
 
-    /* Allocate memory for the environment variable. */
-    env_var = malloc(strlen(name) + (value ? strlen(value) : 0) + 2);
-
-    if (env_var == NULL) {
-        perror("setenv");
+    buf = malloc(_strlen(var) + _strlen(value) + 2);
+    if (!buf) {
         return (-1);
     }
+    _strcpy(buf, var);
+    _strcat(buf, "=");
+    _strcat(buf, value);
+    node = info->env;
 
-    /* Check if the variable already exists and overwrite it if necessary. */
-    if (overwrite || getenv(name) == NULL) {
-        if (putenv(strdup(name)) != 0) {
-            perror("setenv");
-            free(env_var);
-            return (-1);
+    while (node) {
+        p = starts_with(node->str, var);
+        if (p && *p == '=') {
+            if (overwrite) {
+                free(node->str);
+                node->str = buf;
+                return (0);
+            } else {
+                free(buf);
+                return (0);
+            }
         }
+        node = node->next;
     }
 
-    /* Construct the environment variable string. */
-    strcpy(env_var, name);
-    if (value) {
-        strcat(env_var, "=");
-        strcat(env_var, value);
-    }
-
-    /* Set the environment variable. */
-    if (putenv(env_var) != 0) {
-        perror("setenv");
-        free(env_var);
-        return (-1);
-    }
-
-    /* Free the allocated memory. */
-    free(env_var);
-
+    add_node_end(&(info->env), buf, 0);
+    free(buf);
     return (0);
 }
 
 /**
- * unsetenv - Unset an environment variable.
- * @name: The name of the environment variable to unset.
- * Return: 0 on success, -1 on failure.
+ * unsetenv - Remove an environment variable.
+ * @info: Structure containing potential arguments.
+ * @var: The name of the environment variable to unset.
+ * Return: 1 on delete, 0 otherwise.
  */
-int unsetenv(const char *name)
+int _unsetenv(info_t *info, char *var)
 {
-    /* Check for invalid arguments. */
-    if (name == NULL || name[0] == '\0' || getenv(name) == NULL) {
-        fprintf(stderr, "unsetenv: invalid arguments\n");
-        return (-1);
+    list_t *node = info->env;
+    size_t i = 0;
+    char *p;
+
+    if (!node || !var) {
+        return (0);
     }
 
-    if (putenv(strdup(name)) != 0) {
-        perror("unsetenv");
-        return (-1);
+    while (node) {
+        p = starts_with(node->str, var);
+        if (p && *p == '=') {
+            info->env_changed = delete_node_at_index(&(info->env), i);
+            i = 0;
+            node = info->env;
+            continue;
+        }
+        node = node->next;
+        i++;
     }
-
-    return (0);
+    return (info->env_changed);
 }

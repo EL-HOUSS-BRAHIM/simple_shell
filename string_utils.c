@@ -38,7 +38,7 @@ return (nread);
  */
 char *_strtok(char *str, const char *delim)
 {
-static char *next = NULL;
+static char *next;
 char *token;
 if (str)
 next = str;

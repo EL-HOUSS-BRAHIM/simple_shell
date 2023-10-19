@@ -10,7 +10,7 @@ int setenv(const char *name, const char *value, int overwrite)
 {
 char *env_var;
 /* Check for invalid arguments. */
-if (name == NULL || name[0] == '\0' || (value == NULL && !overwrite)) {
+if (name == NULL || name[0] == '\0' || (value == NULL && overwrite == 0)) {
 fprintf(stderr, "setenv: invalid arguments\n");
 return (-1);
 }

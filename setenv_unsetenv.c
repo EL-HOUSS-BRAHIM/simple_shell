@@ -8,8 +8,7 @@
  */
 int setenv(const char *name, const char *value, int overwrite)
 {
-char *env_var;
-if (name == NULL || name[0] == '\0' || (value == NULL && overwrite))
+if (name == NULL || name[0] == '\0' || (value == NULL && !overwrite))
 {
 fprintf(stderr, "setenv: invalid arguments\n");
 return (-1);
@@ -22,7 +21,7 @@ perror("setenv");
 return (-1);
 }
 }
-env_var = malloc(strlen(name) + strlen(value) + 2);
+char *env_var = malloc(strlen(name) + strlen(value) + 2);
 if (!env_var)
 {
 perror("setenv");
@@ -46,18 +45,15 @@ return (0);
  */
 int unsetenv(const char *name)
 {
-if (!name || name[0] == '\0' || getenv(name) == NULL)
+if (name == NULL || name[0] == '\0' || getenv(name) == NULL)
 {
 fprintf(stderr, "unsetenv: invalid arguments\n");
 return (-1);
 }
-if (getenv(name) != NULL)
-{
 if (putenv(strdup(name)) != 0)
 {
 perror("unsetenv");
 return (-1);
-}
 }
 return (0);
 }

@@ -66,7 +66,7 @@ char *trim_whitespace(char *str)
 char *end;
 if (str == NULL)
 return (NULL);
-while (isspace((unsigned char)*str))
+while (_isspace((unsigned char)*str))
 str++;
 if (*str == 0)
 return (str);

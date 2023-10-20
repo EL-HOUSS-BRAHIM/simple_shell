@@ -13,6 +13,7 @@
 #define UNUSED(x) (void)(x)
 /* Global environment variable */
 extern char **environ;
+#define MAX_ENV_NAME_LENGTH 256
 /* Function prototypes */
 char *read_line(void);
 char **parse_line(char *line);

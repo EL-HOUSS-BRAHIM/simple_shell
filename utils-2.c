@@ -19,7 +19,7 @@ for (; s[i] != '\0'; i++)
 {
 result = result * 10 + (s[i] - '0');
 }
-return (sign * result);
+return (sign *result);
 }
 /**
  * _isspace - Check if a character is a whitespace character.
@@ -29,7 +29,8 @@ return (sign * result);
  */
 int _isspace(int c)
 {
-return (c == ' ' || c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r');
+return (c == ' ' || c == '\t' || c == '\n' || c == '\v' ||
+c == '\f' || c == '\r');
 }
 /**
  * _strlen - Calculate the length of a string.
@@ -44,7 +45,7 @@ while (str[len] != '\0')
 {
 len++;
 }
-return len;
+return (len);
 }
 /**
  * count_tokens - Count the number of tokens in a string.

@@ -121,8 +121,8 @@ Contributions to this project are welcome. You can contribute by:
 
 ## Authors
 
-- [BRAHIM EL HOUSS](https://github.com/EL-HOUSS-BRAHIM/simple_shell.git) - Owner
-- [AYOUB KIAL] - Owner
+- [BRAHIM EL HOUSS](https://github.com/EL-HOUSS-BRAHIM) - Owner
+- [AYOUB KIAL](https://github.com/Kialayoub) - Owner
 
 ## License
 

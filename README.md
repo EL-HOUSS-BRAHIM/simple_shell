@@ -48,48 +48,48 @@ Once the shell is running, you can enter Unix commands and execute them.
 ## Project Structure
 
 The project is organized into several source files, each serving a specific purpose:
-´project-name´/
-│
-├── ´errors.c´
-│   - Source code for error handling functions.
-│   - Contains functions for printing error messages.
-│
-├── ´errors1.c´
-│   - Source code for additional error-related functions.
-│   - Includes functions for string to integer conversion and error message printing.
-│
-├── ´exits.c´
-│   - Source code for functions related to string manipulation.
-│   - Contains string copying, concatenation, and character searching functions.
-│
-├── ´getenv.c´
-│   - Source code for handling environment variables.
-│   - Includes functions for retrieving, setting, and unsetting environment variables.
-│
-├── ´getinfo.c´
-│   - Source code for managing program and command information.
-│   - Contains functions for initializing, clearing, and freeing information structures.
-│
-├── ´history.c´
-│   - Source code for managing command history.
-│   - Includes functions for reading and writing command history to a file.
-│
-├── ´lists.c´
-│   - Source code for handling linked lists.
-│   - Contains functions for creating, printing, and freeing linked lists.
-│
-├── ´shell.h´
-│   - Header file containing function prototypes and definitions.
-│
-├── ´environ.c´
-│   - Source code for managing the shell environment.
-│   - Includes functions for printing the environment and manipulating environment variables.
-│
-├── ´main.c´
-│   - Main source code file for the shell program.
-│   - Contains the main execution of the shell and command parsing.
-│
-└── ´README.md´
+- ´project-name´/
+- │
+- ├── ´errors.c´
+- │   - Source code for error handling functions.
+- │   - Contains functions for printing error messages.
+- │
+- ├── ´errors1.c´
+- │   - Source code for additional error-related functions.
+- │   - Includes functions for string to integer conversion and error message printing.
+- │
+- ├── ´exits.c´
+- │   - Source code for functions related to string manipulation.
+- │   - Contains string copying, concatenation, and character searching functions.
+- │
+- ├── ´getenv.c´
+- │   - Source code for handling environment variables.
+- │   - Includes functions for retrieving, setting, and unsetting environment variables.
+- │
+- ├── ´getinfo.c´
+- │   - Source code for managing program and command information.
+- │   - Contains functions for initializing, clearing, and freeing information structures.
+- │
+- ├── ´history.c´
+- │   - Source code for managing command history.
+- │   - Includes functions for reading and writing command history to a file.
+- │
+- ├── ´lists.c´
+- │   - Source code for handling linked lists.
+- │   - Contains functions for creating, printing, and freeing linked lists.
+- │
+- ├── ´shell.h´
+- │   - Header file containing function prototypes and definitions.
+- │
+- ├── ´environ.c´
+- │   - Source code for managing the shell environment.
+- │   - Includes functions for printing the environment and manipulating environment variables.
+- │
+- ├── ´main.c´
+- │   - Main source code file for the shell program.
+- │   - Contains the main execution of the shell and command parsing.
+- │
+- └── ´README.md´
     - Project documentation in Markdown format, including project description and usage instructions.
 
 
